@@ -1,0 +1,171 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mon Portfolio</title>
+
+    <link rel="stylesheet"
+          href="{% static 'portfolio/css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <h2 class="logo">Portfolio.</h2>
+
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Accueil -->
+    
+<!-- Accueil -->
+<section id="accueil" class="hero">
+
+    <div class="hero-content">
+
+        <p class="intro">Bonjour, je suis</p>
+
+        <h1>Jean Paul Onambele</h1><br>
+
+        <h2> Ingénieur Logiciel</h2>
+
+        <h3>Concevoir. Développer. Innover.</h3>
+
+        <p>
+            Étudiant en Génie Logiciel, passionné par la conception,
+            le développement et l'architecture de solutions logicielles.
+            Mon ambition est de concevoir des applications modernes,
+            évolutives et maintenables.
+        </p>
+
+        <a href="#projets" class="btn">
+            Découvrir mes projets
+        </a>
+
+        <a href="#contact" class="btn">
+            Me contacter
+        </a>
+
+    </div>
+
+    <div class="hero-image">
+        <img src="{% static 'portfolio/images/profil.jpg' %}"
+             alt="Photo de profil de Jean Paul Onambele">
+    </div>
+
+</section>
+
+<!-- Compétences -->
+    <section id="competences" class="skills">
+
+        <h2>Mes compétences</h2>
+
+            <div class="skills-container">
+
+                {% for competence in competences %}
+
+                    <div class="skill-card">
+
+                        <h3>{{ competence.nom }}</h3>
+
+                        <span>{{ competence.niveau }}</span>
+
+                        <p>{{ competence.description }}</p>
+
+                    </div>
+
+                {% empty %}
+
+                <p>Aucune compétence enregistrée.</p>
+
+                {% endfor %}
+
+            </div>
+
+    </section>
+<!-- À propos -->
+    
+<!-- À propos -->
+<section id="apropos" class="about">
+
+    <h2>À propos de moi</h2>
+
+    <div class="about-content">
+
+        <h3>Qui suis-je ?</h3>
+
+        <p>
+            Je suis étudiant en Licence Génie Logiciel,
+            passionné par l'informatique et la conception
+            de solutions logicielles.
+        </p>
+
+        <p>
+            Je m'intéresse particulièrement au développement
+            backend, à la programmation orientée objet,
+            à l'architecture logicielle et à la conception
+            d'applications web.
+        </p>
+
+        <h3>Mon objectif</h3>
+
+        <p>
+            Mon ambition est de devenir ingénieur logiciel
+            et de développer des applications performantes,
+            évolutives, sécurisées et faciles à maintenir.
+        </p>
+
+    </div>
+
+</section>
+
+    <!-- Projets -->
+    <section id="projets" class="projects">
+
+        <h2>Mes projets</h2>
+
+        <div class="project-container">
+
+            {% for projet in projets %}
+
+                <div class="project-card">
+
+                    <h3>{{ projet.nom }}</h3>
+
+                    <p>{{ projet.description }}</p>
+
+                    <span>{{ projet.technologie }}</span>
+
+                </div>
+
+            {% empty %}
+
+                <p>Aucun projet disponible.</p>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+    <footer>
+        <p>© 2026 - Mon Portfolio</p>
+    </footer>
+
+</body>
+</html>
